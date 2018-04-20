@@ -1,0 +1,13 @@
+﻿
+/* tab setting container*/
+#tabsettings {	border-collapse: collapse;	border-spacing: 0; width:690px;}
+#tabsettings tr {border-spacing:0px;}
+#tabsettingscont {height:300px;width:710px;overflow:auto;}
+.nap_tl {border-left:solid 1px black;border-top:solid 1px black; padding:5px;}
+.nap_tr {border-top:solid 1px black;border-right:solid 1px black;padding:5px;}
+.nap_l {border-left:solid 1px black;padding:5px;}
+.nap_r {border-right:solid 1px black;padding:5px;}
+.nap_bl {border-left:solid 1px black;border-bottom:solid 1px black;padding:5px;margin-bottom:3px;}
+.nap_br {border-right:solid 1px black;border-bottom:solid 1px black;padding:5px;margin-bottom:3px;}
+
+.nap_pagename {font-weight:bold; font-size:larger;}

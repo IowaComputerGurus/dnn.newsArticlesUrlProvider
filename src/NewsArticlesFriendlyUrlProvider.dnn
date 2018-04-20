@@ -1,0 +1,80 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="NewsArticlesFriendlyUrlProvider" type="Provider" version="02.00.01">
+      <friendlyName>NewsArticlesFriendlyUrlProvider</friendlyName>
+      <description>PatapscoResearch.com NewsArticlesFriendlyUrlProvider</description>
+      <iconFile>~/Images/icon_extensions_32px.png</iconFile>
+      <owner>
+        <name>DNN Community</name>
+        <organization>IowaComputerGurus.com</organization>
+        <url>https://www.github.com/iowacomputergurus/</url>
+        <email>msellers@iowacomputergurus.com</email>
+      </owner>
+      <license src="License.txt"></license>
+      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <azureCompatible>true</azureCompatible>
+      <dependencies>
+        <dependency type="CoreVersion">08.00.00</dependency>
+      </dependencies>
+
+      <components>
+        <component type="Script">
+          <scripts>
+            <basePath>DesktopModules\NewsArticlesFriendlyUrlProvider</basePath>
+            <script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.00</version>
+            </script>
+            <script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>01.01.00.SqlDataProvider</name>
+              <version>01.01.00</version>
+            </script>
+            <script type="UnInstall">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>Uninstall.SqlDataProvider</name>
+              <version>01.01.00</version>
+            </script>
+          </scripts>
+        </component>
+
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/NewsArticlesFriendlyUrlProvider</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="UrlProvider">
+          <urlProvider>
+            <name>DNN NewsArticles Friendly Url Provider</name>
+            <type>DNN.Modules.NewsArticlesFriendlyUrlProvider.NewsArticlesFriendlyUrlProvider</type>
+            <settingsControlSrc>DesktopModules/NewsArticlesFriendlyUrlProvider/UI/Settings.ascx</settingsControlSrc>
+            <redirectAllUrls>true</redirectAllUrls>
+            <replaceAllUrls>false</replaceAllUrls>
+            <rewriteAllUrls>false</rewriteAllUrls>
+            <desktopModule></desktopModule>
+          </urlProvider>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>DNN.Modules.NewsArticlesFriendlyUrlProvider.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/NewsArticlesFriendlyUrlProvider</basePath>
+            <resourceFile>
+              <name>Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

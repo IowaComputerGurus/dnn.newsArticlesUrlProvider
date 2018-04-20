@@ -1,0 +1,10 @@
+﻿/************************************************************/
+/*****              SQLDataProvider		                *****/
+/*****  NewsArticles Module Friendly Url Provider 1.00.00		*****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for  and {objectQualifier}	*****/
+/************************************************************/
+IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}ifty_nap_GetNewsArticlesEntriesForTab]') AND type in (N'P', N'PC'))
+	DROP PROCEDURE {databaseOwner}[{objectQualifier}ifty_nap_GetNewsArticlesEntriesForTab]

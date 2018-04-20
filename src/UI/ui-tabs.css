@@ -1,0 +1,22 @@
+﻿/* ui-tabs.css file.  Defines jquery tabs ui style for pre-dnn 6 installations */
+	.ui-tabs .ui-tabs-panel{padding:1px 0 0 !important;}
+	.ui-tabs .ui-tabs-nav{padding:0 !important;}
+	.ui-widget-header{background:#EEE !important;border:#EEE solid !important;border-width:0 0 0 20px !important;-moz-border-radius:0 !important;}
+	.ui-widget-content{border:0 !important;}
+	.ui-tabs .ui-tabs-nav li{
+		top:0 !important;
+		margin:0 !important;width:123px;
+		border:0 !important;
+		border-right:1px #FFF solid !important;
+		-moz-border-radius:0 !important;
+	}
+	.ui-tabs .ui-tabs-nav li.first{border-left:1px #FFF solid !important;}
+
+	.ui-tabs{padding:0 !important;}
+	.ui-tabs .ui-tabs-nav li a{padding:20px !important;white-space:normal;height:34px;border-top:5px #CCC solid;width:83px;}
+	.ui-tabs .ui-tabs-nav li a span{font-size:14px !important;font-weight:bold !important;color:#555 !important;white-space:normal !important;text-shadow:#EEE 0 1px;}
+	.ui-state-default,
+	.ui-widget-content .ui-state-default,
+	.ui-widget-header .ui-state-default{background:#EEE !important;}
+	.ui-tabs .ui-tabs-nav li.ui-tabs-selected{background:#FFF !important;padding:0 !important;}
+	.ui-state-active a{outline:none;border-top:5px #C00 solid !important;}

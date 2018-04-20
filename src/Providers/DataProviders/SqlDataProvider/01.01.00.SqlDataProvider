@@ -1,0 +1,97 @@
+﻿/************************************************************/
+/*****              SQLDataProvider		                *****/
+/*****   iFinity Module Friendly Url Provider 1.01.00	*****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for  and {objectQualifier}	*****/
+/************************************************************/
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}ifty_nap_GetNewsArticlesEntry]    Script Date: 03/03/2012 15:13:51 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}ifty_nap_GetNewsArticlesEntry]') AND type in (N'P', N'PC'))
+DROP PROCEDURE {databaseOwner}[{objectQualifier}ifty_nap_GetNewsArticlesEntry]
+GO
+/****** Object:  StoredProcedure {databaseOwner}[{objectQualifier}ifty_nap_GetNewsArticlesEntry]    Script Date: 03/03/2012 15:13:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}ifty_nap_GetNewsArticlesEntry]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC sp_executesql @statement = N'CREATE PROCEDURE {databaseOwner}[{objectQualifier}ifty_nap_GetNewsArticlesEntry]
+	@tabId int, @startingArticleId int, @itemId int
+AS
+BEGIN
+/* -------------------------------------------
+	GetNewsArticlesEntry :
+	Returns a single entry for the News Article module
+
+   ------------------------------------------- */
+
+
+	select articleId as ItemId, -1 as ParentId, ''Article'' as ItemType, a.Title as UrlFragment1, a.MetaTitle as UrlFragment2, a.ShortUrl as UrlFragment3, a.StartDate as UrlDate, 0 as UrlNum
+	from {databaseOwner}{objectQualifier}DnnForge_NewsArticles_Article a
+	inner join {databaseOwner}{objectQualifier}TabModules tm
+	 on tm.ModuleId = a.ModuleId
+	where tm.tabId = @TabId
+	  and a.ArticleId >= @startingArticleId 
+	  and a.ArticleId = @itemId
+	union
+	select p.PageId, a.ArticleId, ''Page'', p.Title, a.Title, '''', a.StartDate , p.SortOrder + 1
+	from {databaseOwner}{objectQualifier}dnnForge_NewsArticles_Article a
+	inner join {databaseOwner}{objectQualifier}dnnForge_newsArticles_Page p
+	 on a.ArticleID = p.ArticleId
+	inner join {databaseOwner}{objectQualifier}TabModules tm
+	 on tm.ModuleId = a.ModuleId
+	where a.[PageCount] > 1 
+	  and p.SortOrder > 0
+	  and tm.tabId = @TabId  
+	  and a.ARticleId >= @startingArticleId 
+	  and p.PageID = @itemId
+	union 
+	 select c.CategoryId,c.ParentId, ''Category'', c.Name, '''', '''', null, c.ParentId
+	 from {databaseOwner}{objectQualifier}dnnForge_NewsArticles_Category c
+	 inner join {databaseOwner}{objectQualifier}TabModules tm
+	 on tm.ModuleId = c.ModuleId
+	where tm.tabId = @TabId 
+	  and c.CategoryId = @itemId
+	union
+	 select distinct u.UserId, -1, ''Author'', u.UserName, u.DisplayName, '''', null, 0
+	 from {databaseOwner}{objectQualifier}Users u
+	 inner join {databaseOwner}{objectQualifier}DnnForge_NewsArticles_Article a
+	 on a.AuthorId = u.UserId
+	inner join {databaseOwner}{objectQualifier}TabModules tm
+	 on tm.ModuleId = a.ModuleId
+	where tm.tabId = @TabId
+	  and u.UserId = @itemId
+	/*union
+	select distinct convert(int,convert(nvarchar(4),year(startDate)) + replace(str(month(startDate),2),'' '',''0'') )
+	,  year(startDate)
+	, ''Archive''
+	, convert(nvarchar(4),year(startDate)) + ''/'' + replace(str(month(startDate),2),'' '',''0'') , '''', '''', null , month(startDate)
+	from {databaseOwner}{objectQualifier}DnnForge_NewsArticles_Article a
+	inner join {databaseOwner}{objectQualifier}TabModules tm
+	 on tm.ModuleId = a.ModuleId
+	where tm.tabId = @TabId
+	union
+	select distinct year(startDate)
+	,  -1 
+	, ''Archive''
+	, convert(nvarchar(4),year(startDate)) , '''', '''', null , year(startDate)
+	from {databaseOwner}{objectQualifier}DnnForge_NewsArticles_Article a
+	inner join {databaseOwner}{objectQualifier}TabModules tm
+	 on tm.ModuleId = a.ModuleId
+	where tm.tabId = @TabId*/
+	
+	
+
+	/* now get the pre-defined module settings for the module */
+	select SettingName, SettingValue
+	from {databaseOwner}{objectQualifier}moduleSettings ms
+	inner join {databaseOwner}{objectQualifier}TabModules tm
+		on ms.ModuleId = tm.ModuleId
+	where tm.TabId = @TabId
+	  and SettingName in (''TitleReplacementType'',''SEOShorternID'',''SEOUrlMode'',''AlwaysShowPageID'')
+	  
+END' 
+END
+GO
