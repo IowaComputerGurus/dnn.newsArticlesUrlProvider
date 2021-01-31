@@ -1,9 +1,7 @@
 ﻿<div class="License">
 	<h3>License</h3>
 	<p class="Owner">
-		patapscoresearch.com  <a href=http://www.patapscoresearch.com/>http://www.patapscoresearch.com/</a></br>
-		Copyright (c) 2017</br>	
-		by patapscoresearch.com</br>
+		IowaComputerGurus, Inc. (Based on initial work by Joe Craig)
 	</p>
     <p>
         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 

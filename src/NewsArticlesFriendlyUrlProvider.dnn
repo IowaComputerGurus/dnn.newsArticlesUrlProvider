@@ -10,11 +10,11 @@
         <url>https://www.github.com/iowacomputergurus/</url>
         <email>msellers@iowacomputergurus.com</email>
       </owner>
-      <license src="License.txt"></license>
-      <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+      <license src="ManifestAssets\License.txt"></license>
+      <releaseNotes src="ManifestAssets\ReleaseNotes.txt"></releaseNotes>
       <azureCompatible>true</azureCompatible>
       <dependencies>
-        <dependency type="CoreVersion">08.00.00</dependency>
+        <dependency type="CoreVersion">09.00.00</dependency>
       </dependencies>
 
       <components>
