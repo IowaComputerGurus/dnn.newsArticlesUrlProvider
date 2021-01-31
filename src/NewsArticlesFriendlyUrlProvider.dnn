@@ -2,7 +2,7 @@
   <packages>
     <package name="NewsArticlesFriendlyUrlProvider" type="Provider" version="02.00.01">
       <friendlyName>NewsArticlesFriendlyUrlProvider</friendlyName>
-      <description>PatapscoResearch.com NewsArticlesFriendlyUrlProvider</description>
+      <description>Custom FriendlyUrlProvider for Ventrian News Articles</description>
       <iconFile>~/Images/icon_extensions_32px.png</iconFile>
       <owner>
         <name>DNN Community</name>
@@ -10,8 +10,8 @@
         <url>https://www.github.com/iowacomputergurus/</url>
         <email>msellers@iowacomputergurus.com</email>
       </owner>
-      <license src="ManifestAssets\License.txt"></license>
-      <releaseNotes src="ManifestAssets\ReleaseNotes.txt"></releaseNotes>
+      <license>MIT License</license>
+      <releaseNotes>See GitHub</releaseNotes>
       <azureCompatible>true</azureCompatible>
       <dependencies>
         <dependency type="CoreVersion">09.00.00</dependency>
@@ -47,6 +47,7 @@
             </resourceFile>
           </resourceFiles>
         </component>
+
         <component type="UrlProvider">
           <urlProvider>
             <name>DNN NewsArticles Friendly Url Provider</name>
@@ -65,14 +66,6 @@
               <path>bin</path>
             </assembly>
           </assemblies>
-        </component>
-        <component type="ResourceFile">
-          <resourceFiles>
-            <basePath>DesktopModules/NewsArticlesFriendlyUrlProvider</basePath>
-            <resourceFile>
-              <name>Resources.zip</name>
-            </resourceFile>
-          </resourceFiles>
         </component>
       </components>
     </package>

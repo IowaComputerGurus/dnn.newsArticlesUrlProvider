@@ -1,8 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Settings.ascx.cs" Inherits="DNN.Modules.NewsArticlesFriendlyUrlProvider.UI.Settings" %>
-
-
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
 
+<h2>News Articles URL Provider Settings</h2>
 <div class="dnnForm"> 
     <div id="settings">
         <asp:Label ID="lblHeader" runat="server" CssClass="NormalBold" />
